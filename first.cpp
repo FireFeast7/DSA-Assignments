@@ -116,7 +116,7 @@ class BST{
     }
     public : Node* del(Node *root, int key)
     {
-        if(root = NULL){
+        if(root == NULL){
             return root;
         }
         else if(key < root->data){
@@ -174,6 +174,7 @@ int main(){
 //    btree.swap(root);
 //    btree.inorder(root);
    root = btree.del(root,20);
+   root = btree.del(root,5);
     btree.inorder(root);
     return 0;
 }
