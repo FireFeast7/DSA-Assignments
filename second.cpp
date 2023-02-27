@@ -213,12 +213,26 @@ class BinaryTree{
                     root->right = ptr;
                 }
         } 
+        public:Node *copyTree(Node *root){
+            if(root == NULL){
+                return NULL;
+            }
+            else{
+                Node *newNode = new Node();
+                newNode = root;
+                newNode->left = copyTree(root->left);
+                newNode->right = copyTree(root->left);
+                cout<<"SuccessFully Copied all the values to another Tree"<<endl;
+                return newNode;
+            }
+        }
 };
 
 int main(){
     BinaryTree b1;
     int ch;
     Node *root = NULL;
+    Node *copy = NULL;
     ch = 0;
     while(ch!=-1){
         cout<<endl;
@@ -230,7 +244,8 @@ int main(){
     cout<<"6.Count Leaf Nodes "<<endl;
     cout<<"7.Count Internal Nodes "<<endl;
     cout<<"8.Delete Tree "<<endl;
-    cout<<"9.Swapping Tree"<<endl;
+    cout<<"9.Swapping Nodes "<<endl;
+    cout<<"10.Copy Binary Tree"<<endl;
     cout<<"-1 to Stop "<<endl;
     cin>>ch;
     switch(ch){
@@ -251,9 +266,11 @@ int main(){
         case 7:cout<<" "<<b1.countInternal(root);
             break;
         case 8:b1.deleteTree(root);
-            break;                
+            break;                 
         case 9:b1.swapping(root);
-            break;     
+            break;
+        case 10:copy = b1.copyTree(root);
+            break;
         default:cout<<" Wrong Input "<<endl;
             break;
         }
