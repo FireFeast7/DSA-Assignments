@@ -83,7 +83,7 @@ void hashTable::insertR(){
                 hashArray[pos] = d;
                 for (int i = pos + 1; i % size != 0; i++)
                 {
-                    if (hashArray[i].data == 0)
+                    if (hashArray[i].data == -1)
                     {
                         hashArray[i] = d1;
                         break;
