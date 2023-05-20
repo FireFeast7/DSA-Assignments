@@ -11,6 +11,7 @@ class DataItem
     string name;
     public: DataItem()
     {
+       
         data=-1;
         name = "--";
     };
