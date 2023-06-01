@@ -61,25 +61,29 @@ class BinaryTree{
             }
             return temp;
         }
-        public:void preorder(Node *root){
-            Stack s;
-            s.push(root);
-            Node *curr = new Node();
-            curr = root;
-            while(s.isEmpty()==false || curr!=NULL){
-                if(curr!=NULL){
-                    cout<<" "<<curr->data;
-                    if(curr->right!=NULL){
-                        s.push(curr->right);
-                    }
-                    curr = curr->left;
-                }
-                else{
-                    curr = s.peek();
-                    s.pop();
-                }
+        public:void preorder(Node *root) {
+        if (root == nullptr) {
+            return;
+        }
+
+        Stack s;
+        s.push(root);
+
+        while (!s.isEmpty()) {
+            Node *curr = s.peek();
+            s.pop();
+            cout << " " << curr->data;
+
+            if (curr->right != nullptr) {
+                s.push(curr->right);
+            }
+
+            
+            if (curr->left != nullptr) {
+                s.push(curr->left);
             }
         }
+    }
         public:void inorder(Node *root){
             Stack s;
             Node *curr = root;
